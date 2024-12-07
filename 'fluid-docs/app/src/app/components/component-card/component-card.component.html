@@ -1,0 +1,19 @@
+<fluid-grid>
+  <fluid-grid-item [colSm]="4">
+    <fluid-input-field style="width: 100%;" (valueChange)="searchComponents($event.detail.value)"
+                       placeholder="Search Components...."
+                       aligned-with-button></fluid-input-field>
+  </fluid-grid-item>
+  <fluid-grid-item [colSm]="12">
+    <div class="components" >
+      <div class="component-card" *ngFor="let comp of componentCards; let index = index;" [ngClass]="getClass(index)" (click)="navigateTo(comp.route)">
+        <div class="component-symbol">
+          {{comp.symbol}}
+        </div>
+        <div class="component-name">
+          {{comp.name}}
+        </div>
+      </div>
+    </div>
+  </fluid-grid-item>
+</fluid-grid>

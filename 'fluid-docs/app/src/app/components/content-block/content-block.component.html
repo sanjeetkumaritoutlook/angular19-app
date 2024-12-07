@@ -1,0 +1,88 @@
+<ng-container [ngSwitch]="type">
+  <fluid-text *ngSwitchCase="SectionContentType.TEXT"
+              [strong]="opts?.strong"
+              [center]="opts?.center"
+              [inline]="opts?.inline"
+              [muted]="opts?.muted"
+              [small]="opts?.small"
+              [innerHTML]="toSafeHtml(content)"
+              [disableGutter]="removeTopGutter && 'top'"></fluid-text>
+  <fluid-text *ngSwitchCase="SectionContentType.MUTED" [staticText]="true" [disableGutters]="true" [muted]="true" [disableGutter]="removeTopGutter && 'top'" [innerHTML]="toSafeHtml(content)"></fluid-text>
+  <fluid-code-block *ngSwitchCase="SectionContentType.CODE" [code]="content" [type]="opts?.type || 'js'" [inline]="opts?.noContainer" [noContainer]="opts?.noContainer"></fluid-code-block>
+  <fluid-title [level]="opts?.level || 3" *ngSwitchCase="SectionContentType.SUBTITLE">{{content}}</fluid-title>
+  <fluid-title level="2" *ngSwitchCase="SectionContentType.TITLE">{{content}}</fluid-title>
+  <fluid-image *ngSwitchCase="SectionContentType.IMAGE"
+               [src]="content.src"
+               [width]="content.width"
+               [enableZoomModal]="opts?.enableZoomModal"
+               [noContainer]="content.noContainer"></fluid-image>
+  <fluid-link *ngSwitchCase="SectionContentType.LINK"
+              [target]="content.target"
+              [link]="content.link">{{content.label}}</fluid-link>
+  <fluid-alert *ngSwitchCase="SectionContentType.INFO" [message]="content" visible severity="info"></fluid-alert>
+  <fluid-badge *ngSwitchCase="SectionContentType.BADGE" color="info" [label]="content" solid></fluid-badge>
+  <fluid-section-detail *ngSwitchCase="SectionContentType.DETAIL" [sectionTitle]="content.title" [innerHTML]="content.description"></fluid-section-detail>
+  <fluid-faq *ngSwitchCase="SectionContentType.FAQ" [question]="content.question" [answer]="content.answer" [collapsed]="content.collapsed"></fluid-faq>
+
+  <fluid-tabs *ngSwitchCase="SectionContentType.TABS">
+    <fluid-tab *ngFor="let tab of content" [title]="tab.title">
+      <app-content-block *ngFor="let subSectionContent of tab.content"
+                         [type]="subSectionContent.type"
+                         [opts]="subSectionContent.opts"
+                         [content]="subSectionContent.content">
+      </app-content-block>
+    </fluid-tab>
+  </fluid-tabs>
+
+  <fluid-grid *ngSwitchCase="SectionContentType.GRID" align-items="center">
+    <fluid-grid-item *ngFor="let gridContent of content"
+                     [alignSelf]="gridContent.alignSelf"
+                     [alignItems]="gridContent.alignItems"
+                     [colSm]="gridContent.width.sm"
+                     [colMd]="gridContent.width.md"
+                     [colLg]="gridContent.width.lg">
+      <app-content-block *ngFor="let contentItem of gridContent.content"
+                         [type]="contentItem.type"
+                         [opts]="contentItem.opts"
+                         [content]="contentItem.content"></app-content-block>
+    </fluid-grid-item>
+  </fluid-grid>
+
+  <!-- Use BR in place of.... umm.... ? -->
+  <ng-container *ngSwitchCase="SectionContentType.BREAK">
+    <br/><br/>
+  </ng-container>
+
+  <!-- Angular Components -->
+  <ng-container *ngSwitchCase="SectionContentType.COMPONENT">
+    <ng-container [ngSwitch]="content">
+      <app-framework-switcher *ngSwitchCase="Components.FRAMEWORK_SWITCHER"></app-framework-switcher>
+      <app-switch-theme *ngSwitchCase="Components.SWITCH_THEME" [label]="opts?.label" [switchTo]="opts?.switchTo" [altLabel]="opts?.altLabel"></app-switch-theme>
+      <app-component-card *ngSwitchCase="Components.COMPONENT_CARD" [components]="opts?.components"></app-component-card>
+      <app-component-api *ngSwitchCase="'app-component-api'" [component]="opts?.component"></app-component-api>
+      <app-component-usage *ngSwitchCase="'app-component-usage'" [component]="opts?.component" [examples]="opts?.examples" [exampleReady]="true"></app-component-usage>
+      <app-component-changelog *ngSwitchCase="'app-component-changelog'" [component]="opts?.component"></app-component-changelog>
+      <app-framework-snippet *ngSwitchCase="Components.FRAMEWORK_SNIPPET"
+                             [args]="opts?.args"
+                             [name]="opts?.name"
+                             [eventName]="opts?.eventName"
+                             [elementName]="opts?.elementName"
+                             [snippetType]="opts?.snippetType"
+                             [refName]="opts?.refName">
+      </app-framework-snippet>
+      <app-component-preview *ngSwitchCase="Components.COMPONENT_PREVIEW" [definition]="opts?.definition" [showCodeToggle]='opts?.showCodeToggle'></app-component-preview>
+      <app-table-wrapper *ngSwitchCase="Components.TABLE_WRAPPER" [props]="opts?.props" [logEvents]="opts?.logEvents" [enableCodeToggle]="opts?.enableCodeToggle"></app-table-wrapper>
+      <app-form-wrapper *ngSwitchCase="Components.FORM_WRAPPER" [props]="opts?.props"></app-form-wrapper>
+      <app-component-builder *ngSwitchCase="Components.COMPONENT_BUILDER" [component]="opts?.component" [docs]="opts?.docs"></app-component-builder>
+    </ng-container>
+  </ng-container>
+
+  <!-- Use HTML List until fluid-list is complete -->
+  <ul *ngSwitchCase="SectionContentType.LIST">
+    <li *ngFor="let item of content"><fluid-text [innerHTML]="toSafeHtml(item)"></fluid-text></li>
+  </ul>
+
+  <!-- Use HTML Divider until fluid-divider is complete -->
+  <fluid-divider color="lightgray" border-style="dashed" *ngSwitchCase="SectionContentType.DIVIDER"></fluid-divider>
+
+</ng-container>
