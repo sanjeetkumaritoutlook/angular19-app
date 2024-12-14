@@ -39,7 +39,7 @@ jobs:
    #Angular uses client-side routing. GitHub Pages, by default, doesn't understand Angular's routing structure and tries to fetch files directly from the angular19-app/ directory, which doesn't exist as a physical path.
    #GitHub Pages doesn't support fallback routing for Single Page Applications (SPA).
       - name: Build Angular app
-        run: npm run build --output-path=dist --base-href=/angular19-app/
+        run: npm run build -- --base-href=/angular19-app/
 
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
