@@ -1,6 +1,0 @@
-# Code Owners are:
-* @Joe-Flynn_lmig @Troy-Holleman_lmig @Stephen-Loan_lmig @Nathan-Beaulieu_lmig @Bethany-Knapstad_lmig @Ilya-Shubentsov_lmig @Emily-Meeks_lmig @Kevin-Carter01_lmig
-# Joe Flynn, Troy Holleman, Stephen Loan, Nathan Beaulieu, Bethany Knapstad, Ilya Shubentsov, Emily Meeks, Kevin Carter
-# It is important to protect CODEOWNERS file as well because otherwise it can get deleted
-# or moved within a pull request; so we want to assign a code owner to it which can prevent this
-CODEOWNERS @Joe-Flynn_lmig
