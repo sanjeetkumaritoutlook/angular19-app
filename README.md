@@ -12,6 +12,28 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Why SSR and GitHub Pages Conflict:
+
+the inclusion of server-side rendering (SSR) configurations in your Angular application can affect deployment to GitHub Pages, because GitHub Pages is a static hosting service. It doesn't support executing server-side code, such as the code in server.ts or the SSR setup.
+
+SSR Requires a Server: Server-side rendering in Angular generates the HTML on the server for each route dynamically. GitHub Pages, however, can only serve pre-generated static files.
+
+
+deploy.yml Behavior: If your deployment pipeline (like in deploy.yml) is attempting to run SSR or relying on server-side files, it won't work because GitHub Pages doesn't provide a runtime environment for executing server code.
+
+What You Need to Do:
+
+If your intent is to deploy to GitHub Pages, you must disable SSR for this deployment and use a static version of your application.
+
+## If You Still Want SSR:
+For SSR hosting, you’ll need a different service, such as:
+
+Vercel
+Netlify
+Firebase Hosting with Cloud Functions
+AWS, Azure, or Google Cloud for full server hosting.
+These services support server-side environments and can run your SSR code properly.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
