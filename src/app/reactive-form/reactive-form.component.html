@@ -1,0 +1,54 @@
+<h2>Registration Form</h2>
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <!-- Name Field -->
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" />
+    <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched" style="color: red;">
+      Name is required.
+    </div>
+  </div>
+
+  <!-- Email Field -->
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" />
+    <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" style="color: red;">
+      <div *ngIf="registrationForm.get('email')?.errors?.['required']">Email is required.</div>
+      <div *ngIf="registrationForm.get('email')?.errors?.['email']">Invalid email format.</div>
+    </div>
+  </div>
+
+  <!-- Password Field -->
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" type="password" formControlName="password" />
+    <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" style="color: red;">
+      <div *ngIf="registrationForm.get('password')?.errors?.['required']">Password is required.</div>
+      <div *ngIf="registrationForm.get('password')?.errors?.['minlength']">
+        Password must be at least 6 characters long.
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms and Conditions -->
+  <div>
+    <label>
+      <input type="checkbox" formControlName="terms" />
+      I agree to the terms and conditions.
+    </label>
+    <div *ngIf="registrationForm.get('terms')?.invalid && registrationForm.get('terms')?.touched" style="color: red;">
+      You must agree to the terms.
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+</form>
+
+<!-- Form Preview -->
+<p><strong>Form Value:</strong></p>
+<pre>{{ registrationForm.value | json }}</pre>
+<p><strong>Form Status:</strong></p>
+<pre>{{ registrationForm.status | json }}</pre>

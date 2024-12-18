@@ -1,0 +1,16 @@
+<div>
+    <!-- Property Binding: Bind input field value to userName variable -->
+    <label for="username">Enter Username:</label>
+    <input 
+      id="username" 
+      [(ngModel)]="userName" 
+      (input)="onInputChange($event)"  
+      placeholder="Enter your name" />
+   <!-- Two-way binding for input -->
+    <!-- Event binding for input change -->
+    <!-- Property Binding: Bind disabled state of the button to isDisabled -->
+    <button 
+      [disabled]="isDisabled"  
+      (click)="onButtonClick()">Submit</button>
+  </div>
+  <!-- Button is disabled when isDisabled is true -->

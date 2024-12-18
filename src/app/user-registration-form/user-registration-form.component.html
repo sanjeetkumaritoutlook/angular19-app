@@ -1,0 +1,78 @@
+<h2>User Registration</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <!-- Username Field -->
+  <div>
+    <label for="username">Username:</label>
+    <input
+      id="username"
+      name="username"
+      [(ngModel)]="user.username"
+      required
+    />
+    <div *ngIf="!user.username && user.username !== undefined" style="color: red;">
+      Username is required.
+    </div>
+  </div>
+
+  <!-- Email Field -->
+  <div>
+    <label for="email">Email:</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      [(ngModel)]="user.email"
+      required
+    />
+    <div *ngIf="!user.email && user.email !== undefined" style="color: red;">
+      Email is required.
+    </div>
+  </div>
+
+  <!-- Password Field -->
+  <div>
+    <label for="password">Password:</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      [(ngModel)]="user.password"
+      required
+      minlength="6"
+    />
+    <div *ngIf="user.password && user.password.length < 6" style="color: red;">
+      Password must be at least 6 characters long.
+    </div>
+  </div>
+
+  <!-- Preferences Section -->
+  <fieldset>
+    <legend>Preferences</legend>
+    <label>
+      <input
+        type="checkbox"
+        [(ngModel)]="user.preferences.newsletter"
+        name="newsletter"
+      />
+      Subscribe to Newsletter
+    </label>
+    <br />
+    <label>
+      <input
+        type="checkbox"
+        [(ngModel)]="user.preferences.notifications"
+        name="notifications"
+      />
+      Enable Notifications
+    </label>
+  </fieldset>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="!user.username || !user.email || user.password.length < 6">
+    Register
+  </button>
+</form>
+
+<p><strong>Preview:</strong></p>
+<pre>{{ user | json }}</pre>

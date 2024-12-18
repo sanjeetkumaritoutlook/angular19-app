@@ -1,0 +1,55 @@
+<form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input
+        id="name"
+        name="name"
+        [(ngModel)]="user.name"
+        required
+      />
+      <div *ngIf="!user.name && user.name !== undefined" style="color: red;">
+        Name is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="user.email"
+        required
+      />
+      <div *ngIf="!user.email && user.email !== undefined" style="color: red;">
+        Email is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="age">Age:</label>
+      <input
+        id="age"
+        name="age"
+        type="number"
+        [(ngModel)]="user.age"
+        required
+        min="1"
+      />
+      <div *ngIf="user.age !== null && user.age < 1" style="color: red;">
+        Age must be at least 1.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="!user.name || !user.email || !user.age">
+      Submit
+    </button>
+  </form>
+  
+  <p>
+    <strong>Preview:</strong>
+  </p>
+  <p>Name: {{ user.name }}</p>
+  <p>Email: {{ user.email }}</p>
+  <p>Age: {{ user.age }}</p>
+  

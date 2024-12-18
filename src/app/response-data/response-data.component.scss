@@ -1,0 +1,16 @@
+/* data.component.css */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: blue;
+  }
+  /* data.component.css */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* Full viewport height */
+}

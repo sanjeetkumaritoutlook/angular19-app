@@ -1,0 +1,19 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of formFields">
+      <label [for]="field.name">{{ field.label }}</label>
+      
+      <!-- Show text input field -->
+      <input *ngIf="!field.condition || field.condition(dynamicForm.value)"
+             [formControlName]="field.name"
+             [type]="field.type"
+             [id]="field.name" />
+  
+      <!-- Example for select -->
+      <select *ngIf="field.type === 'select' && (!field.condition || field.condition(dynamicForm.value))" [formControlName]="field.name">
+        <option *ngFor="let option of field.options" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    
+    <button type="submit" [disabled]="!dynamicForm.valid">Submit</button>
+  </form>
+  
