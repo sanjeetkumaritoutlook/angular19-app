@@ -1,0 +1,11 @@
+<div *ngIf="data; else loading">
+    <div *ngFor="let item of data">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.body }}</p>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+  <input [formControl]="searchControl" placeholder="Search...">
+  <input #searchInput2 placeholder="Search...">

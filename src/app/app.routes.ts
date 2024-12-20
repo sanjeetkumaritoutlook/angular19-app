@@ -13,6 +13,7 @@ import { ResponseDataComponent } from './response-data/response-data.component';
 //import {LazyComponent}  from './lazy/lazy.component';  //when lazy loaded not needed to import
 import { ParentComponent } from './parent/parent.component';
 import { NewParentComponent } from './new-parent/new-parent.component';
+import { ImportRxjsComponent } from './import-rxjs/import-rxjs.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -46,4 +47,5 @@ export const routes: Routes = [
       },
       { path: 'parent-and-child', component: ParentComponent },
       { path: 'new-parent-and-child', component: NewParentComponent },
+      { path: 'app-import-rxjs', component: ImportRxjsComponent },
 ];
