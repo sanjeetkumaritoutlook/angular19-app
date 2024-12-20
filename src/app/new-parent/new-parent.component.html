@@ -1,0 +1,18 @@
+<app-new-child [user]="name"></app-new-child>
+    <hr>
+ <p>{{message}}</p>
+ <button (click)="updateMessage()">Submit</button>
+
+<button (click)="makeRequest()">Make Request</button>
+
+<input type="text" [formControl]="searchControl" placeholder="Search User">
+
+@for (item of users; track $index) {
+<ul>
+    <li>{{item.name}}</li>
+</ul>
+ 
+}
+
+<!-- {{data }} -->
+ 

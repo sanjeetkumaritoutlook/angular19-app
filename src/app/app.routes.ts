@@ -10,6 +10,9 @@ import { BigVerticalFormComponent } from './big-vertical-form/big-vertical-form.
 import { BindingExampleComponent } from './binding-example/binding-example.component';
 import { ObservableExampleComponent } from './observable-example/observable-example.component';
 import { ResponseDataComponent } from './response-data/response-data.component';
+//import {LazyComponent}  from './lazy/lazy.component';  //when lazy loaded not needed to import
+import { ParentComponent } from './parent/parent.component';
+import { NewParentComponent } from './new-parent/new-parent.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -36,4 +39,11 @@ export const routes: Routes = [
     },
     { path: 'observable-example', component: ObservableExampleComponent },
     { path: 'api-response-data', component: ResponseDataComponent },
+    {
+        path: 'lazy',
+        loadComponent: () =>
+          import('./lazy/lazy.component').then(m => m.LazyComponent) // Lazy load the component
+      },
+      { path: 'parent-and-child', component: ParentComponent },
+      { path: 'new-parent-and-child', component: NewParentComponent },
 ];
