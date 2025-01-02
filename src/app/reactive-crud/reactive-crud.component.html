@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>CRUD Operations with Reactive Forms</h2>
+    <form [formGroup]="crudForm" (ngSubmit)="save()">
+      <div>
+        <label for="title">Title</label>
+        <input id="title" formControlName="title" placeholder="Enter Title" />
+        <div *ngIf="crudForm.get('title')?.touched && crudForm.get('title')?.invalid">
+          <small *ngIf="crudForm.get('title')?.hasError('required')">Title is required.</small>
+          <small *ngIf="crudForm.get('title')?.hasError('minlength')">Title must be at least 3 characters long.</small>
+        </div>
+      </div>
+      <div>
+        <label for="body">Body</label>
+        <textarea id="body" formControlName="body" placeholder="Enter Body"></textarea>
+        <div *ngIf="crudForm.get('body')?.touched && crudForm.get('body')?.invalid">
+          <small *ngIf="crudForm.get('body')?.hasError('required')">Body is required.</small>
+          <small *ngIf="crudForm.get('body')?.hasError('minlength')">Body must be at least 5 characters long.</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="crudForm.invalid">{{ editMode ? 'Update' : 'Create' }}</button>
+      <button type="button" (click)="resetForm()" *ngIf="editMode">Cancel</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let item of items">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.body }}</p>
+        <button (click)="edit(item)">Edit</button>
+        <button (click)="delete(item.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  

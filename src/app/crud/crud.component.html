@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>CRUD Operations</h2>
+    <form (ngSubmit)="save()">
+      <input type="text" [(ngModel)]="formData.title" name="title" placeholder="Title" required />
+      <textarea [(ngModel)]="formData.body" name="body" placeholder="Body" required></textarea>
+      <button type="submit">{{ editMode ? 'Update' : 'Create' }}</button>
+      <button type="button" (click)="resetForm()" *ngIf="editMode">Cancel</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let item of items">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.body }}</p>
+        <button (click)="edit(item)">Edit</button>
+        <button (click)="delete(item.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  
