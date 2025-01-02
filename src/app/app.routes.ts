@@ -17,6 +17,9 @@ import { ImportRxjsComponent } from './import-rxjs/import-rxjs.component';
 import { CrudComponent } from './crud/crud.component';
 import { ReactiveCrudComponent } from './reactive-crud/reactive-crud.component';
 import { RxjsWithoutHttpComponent } from './rxjs-without-http/rxjs-without-http.component';
+import { SiblingOneComponent } from './sibling-one/sibling-one.component';
+import { SiblingTwoComponent } from './sibling-two/sibling-two.component';
+import { CounterComponent } from './counter/counter.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -54,4 +57,7 @@ export const routes: Routes = [
       { path: 'rxjs-beyond-http', component: RxjsWithoutHttpComponent },
       { path: 'template-crud', component: CrudComponent },
       { path: 'reactive-crud', component: ReactiveCrudComponent },
+      { path: 'sibling-one', component: SiblingOneComponent },
+      { path: 'sibling-two', component: SiblingTwoComponent },
+      { path: 'counter', component: CounterComponent },
 ];
