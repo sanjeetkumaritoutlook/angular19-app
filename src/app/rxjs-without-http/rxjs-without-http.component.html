@@ -1,0 +1,11 @@
+<p>rxjs-without-http works!</p>
+<button id="myButton">Click Me</button>
+<p>Counter: {{ counter }}</p>
+
+<p>Current State: {{ state$ | async }}</p>
+    <button (click)="updateState('Active')">Set Active</button>
+    <button (click)="updateState('Inactive')">Set Inactive</button>
+
+    <p>Combined Value: {{ combinedValue }}</p>
+    <button (click)="updateFirstValue()">Update First Value</button>
+    <button (click)="updateSecondValue()">Update Second Value</button>  

@@ -8,8 +8,8 @@
 <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
 
 <!-- Show fetched data in JSON format -->
-<!-- <p *ngIf="apiData">Fetched Data (Users):</p>
-<pre *ngIf="apiData">{{ apiData | json }}</pre> -->
+<p *ngIf="apiData">Fetched Data (Users):</p>
+<pre *ngIf="apiData">{{ apiData | json }}</pre>
 <h2>Infinite Scroll with API Data</h2>
 <!-- <h2>Sorting Example</h2>
 
@@ -23,11 +23,11 @@
   placeholder="Search by Name"
   (input)="filterData($event.target.value)"
 /> -->
-<div class="user-container" infiniteScroll (scrolled)="onScroll()">
+<!-- <div class="user-container" infiniteScroll (scrolled)="onScroll()">
   <div *ngFor="let user of apiData" class="user-item">
     {{ user | json }}
   </div>
-</div>
+</div> -->
 
 <p *ngIf="loading">Loading...</p>
 <!-- Pagination Controls -->

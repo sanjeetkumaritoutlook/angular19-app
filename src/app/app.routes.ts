@@ -16,6 +16,7 @@ import { NewParentComponent } from './new-parent/new-parent.component';
 import { ImportRxjsComponent } from './import-rxjs/import-rxjs.component';
 import { CrudComponent } from './crud/crud.component';
 import { ReactiveCrudComponent } from './reactive-crud/reactive-crud.component';
+import { RxjsWithoutHttpComponent } from './rxjs-without-http/rxjs-without-http.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -50,6 +51,7 @@ export const routes: Routes = [
       { path: 'parent-and-child', component: ParentComponent },
       { path: 'new-parent-and-child', component: NewParentComponent },
       { path: 'app-import-rxjs', component: ImportRxjsComponent },
+      { path: 'rxjs-beyond-http', component: RxjsWithoutHttpComponent },
       { path: 'template-crud', component: CrudComponent },
       { path: 'reactive-crud', component: ReactiveCrudComponent },
 ];
