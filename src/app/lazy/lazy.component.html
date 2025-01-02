@@ -1,1 +1,38 @@
 <p>lazy works!</p>
+<h2>JSON Pipe with API Data</h2>
+
+<!-- <p>Fetched Data (Users):</p>
+<pre>{{ apiData | json }}</pre> -->
+
+<!-- Show error message if data fetching fails -->
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+
+<!-- Show fetched data in JSON format -->
+<!-- <p *ngIf="apiData">Fetched Data (Users):</p>
+<pre *ngIf="apiData">{{ apiData | json }}</pre> -->
+<h2>Infinite Scroll with API Data</h2>
+<!-- <h2>Sorting Example</h2>
+
+<button (click)="sortData('name')">Sort by Name</button>
+<button (click)="sortData('username')">Sort by Username</button> -->
+
+<!-- <h2>Filtering Example</h2>
+
+<input
+  type="text"
+  placeholder="Search by Name"
+  (input)="filterData($event.target.value)"
+/> -->
+<div class="user-container" infiniteScroll (scrolled)="onScroll()">
+  <div *ngFor="let user of apiData" class="user-item">
+    {{ user | json }}
+  </div>
+</div>
+
+<p *ngIf="loading">Loading...</p>
+<!-- Pagination Controls -->
+<div *ngIf="apiData && apiData.length > 0">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="nextPage()">Next</button>
+  </div>

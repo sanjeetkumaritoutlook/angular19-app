@@ -323,6 +323,29 @@
     </div>
   </div>
 </main>
+<div class="container">
+  <h3>Directive example</h3>
+  <h3 appRainbowHover>Hover over this text to see the magic!</h3>
+  <p appRainbowHover>Rainbow colors appear as you hover over me.</p>
+  <button appRainbowHover>Rainbow Button</button>
+  <h3>Custom pipe</h3>
+  <h3>Custom "TitleCaseExcept" Pipe Demo</h3>
+  <p>Original: "the lord of the rings"</p>
+  <p>Formatted: "{{ 'the lord of the rings' | titleCaseExcept }}"</p>
+
+  <p>Original: "a tale of two cities"</p>
+  <p>Formatted: "{{ 'a tale of two cities' | titleCaseExcept }}"</p>
+
+  <p>Original: "and justice for all"</p>
+  <p>Formatted: "{{ 'and justice for all' | titleCaseExcept }}"</p>
+  <h3>JSON Pipe Example</h3>
+
+  <p>Original Object:</p>
+  <pre>{{ user | json }}</pre>
+
+  <p>Part of the Object:</p>
+  <pre>{{ user.address | json }}</pre>
+</div>
 <h1>Navigation links</h1>
 <nav style="display: flex; flex-direction: column; gap: 10px;">
   <a routerLink="login" routerLinkActive="active">Login</a>
@@ -336,7 +359,7 @@
   <a routerLink="observable-example" routerLinkActive="active">Observable</a>
   <a routerLink="api-response-data" routerLinkActive="active">API Call</a>
   <a routerLink="editor" routerLinkActive="active">Editor</a>
-  <a routerLink="/lazy" routerLinkActive="active">Lazy Component</a>
+  <a routerLink="/lazy" routerLinkActive="active">Lazy Component with built in pipe</a>
   <a routerLink="parent-and-child" routerLinkActive="active">Parent to child and vice versa</a>
   <a routerLink="new-parent-and-child" routerLinkActive="active">New Parent to child</a>
   <a routerLink="app-import-rxjs" routerLinkActive="active">RxJS Operators</a>
