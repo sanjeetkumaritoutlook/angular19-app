@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,ChangeDetectorRef } from '@angular/core';
 import { ApiCrudService } from './../api-crud.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,7 +16,7 @@ export class ReactiveCrudComponent implements OnInit {
   editMode: boolean = false;
   currentId: number | null = null;
 
-  constructor(private fb: FormBuilder,private apiService: ApiCrudService) {
+  constructor(private fb: FormBuilder,private apiService: ApiCrudService,private cdr: ChangeDetectorRef) {
       // Initialize the form
       this.crudForm = this.fb.group({
         title: ['', [Validators.required, Validators.minLength(3)]],
@@ -35,15 +35,19 @@ export class ReactiveCrudComponent implements OnInit {
   }
 
   save(): void {
+    if (this.crudForm.invalid) {
+      return;
+    }
     if (this.editMode && this.currentId !== null) {
-      this.apiService.update(this.currentId, this.crudForm.value).subscribe(() => {
+      this.apiService.update(this.currentId, this.crudForm.value).subscribe((updatedItem) => {
+        this.items = this.items.map(item => item.id === this.currentId ? updatedItem : item);
+        this.cdr.detectChanges(); // Explicitly trigger change detection
         this.resetForm();
-        this.fetchAll();
       });
     } else {
-      this.apiService.create(this.crudForm.value).subscribe(() => {
+      this.apiService.create(this.crudForm.value).subscribe((newItem) => {
+        this.items.push(newItem); // Add the newly created item to the list
         this.resetForm();
-        this.fetchAll();
       });
     }
   }
