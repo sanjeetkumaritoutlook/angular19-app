@@ -20,6 +20,7 @@ import { RxjsWithoutHttpComponent } from './rxjs-without-http/rxjs-without-http.
 import { SiblingOneComponent } from './sibling-one/sibling-one.component';
 import { SiblingTwoComponent } from './sibling-two/sibling-two.component';
 import { CounterComponent } from './counter/counter.component';
+import { ParentFormComponent } from './parent-form/parent-form.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -60,4 +61,5 @@ export const routes: Routes = [
       { path: 'sibling-one', component: SiblingOneComponent },
       { path: 'sibling-two', component: SiblingTwoComponent },
       { path: 'counter', component: CounterComponent },
+      { path: 'combined-reactive-form', component: ParentFormComponent },
 ];

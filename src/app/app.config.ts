@@ -8,11 +8,19 @@ import { MockBackendService } from './mock-backend.service';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { InterceptorsService } from './auth/interceptors.interceptor';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
     provideHttpClient(),
     { provide: HTTP_INTERCEPTORS, useClass: MockBackendService, multi: true }, provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true },
+    provideAnimationsAsync(),
+        providePrimeNG({
+            theme: {
+                preset: Aura
+            }
+        })
   ]
 };
 //chaining interceptors jwt

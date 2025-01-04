@@ -1,0 +1,9 @@
+<form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+    <app-child-one [formGroup]="childForms['childOne']"></app-child-one>
+    <app-child-two [formGroup]="childForms['childTwo']"></app-child-two>
+    <app-child-three [formGroup]="childForms['childThree']"></app-child-three>
+    <app-child-four [formGroup]="childForms['childFour']"></app-child-four>
+    <app-child-five [formGroup]="childForms['childFive']"></app-child-five>
+
+    <button type="submit" [disabled]="parentForm.invalid">Submit</button>
+  </form>
