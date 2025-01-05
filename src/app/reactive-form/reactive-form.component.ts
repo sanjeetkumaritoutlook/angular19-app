@@ -10,7 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class ReactiveFormComponent {
   registrationForm: FormGroup;
-
+//https://stackblitz.com/edit/angular-reactive-forms-vhtxua?file=app%2Fapp.component.ts
+//https://stackoverflow.com/questions/44898010/form-control-valuechanges-gives-the-previous-value
   constructor(private fb: FormBuilder) {
     this.registrationForm = this.fb.group({
       name: ['', Validators.required],

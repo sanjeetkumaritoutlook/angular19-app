@@ -56,6 +56,12 @@ export class ParentFormComponent implements OnInit {
   }
 
   handleCrossFieldLogic() {
+    // valueChanges returns an observable so that you can subscribe to it.
+    //  The observable get the latest value of the control. 
+    // It allows us to track changes made to the value in real-time and respond to them.
+    //https://www.tektutorialshub.com/angular/valuechanges-in-angular-forms/#google_vignette
+    //https://stackblitz.com/edit/angular-reactive-forms-vhtxua?file=app%2Fapp.component.ts
+    //https://stackoverflow.com/questions/44898010/form-control-valuechanges-gives-the-previous-value
     this.childForms['childOne'].get('field1')?.valueChanges.subscribe((value) => {
       console.log('Value Changed:', value); // Ensure this logs when the value changes
       const childTwoControl = this.childForms['childTwo'].get('field4');

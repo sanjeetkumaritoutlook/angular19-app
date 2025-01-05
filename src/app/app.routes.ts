@@ -21,6 +21,9 @@ import { SiblingOneComponent } from './sibling-one/sibling-one.component';
 import { SiblingTwoComponent } from './sibling-two/sibling-two.component';
 import { CounterComponent } from './counter/counter.component';
 import { ParentFormComponent } from './parent-form/parent-form.component';
+import { SignalCounterComponent } from './signal-counter/signal-counter.component';
+import { RxjsCounterComponent } from './rxjs-counter/rxjs-counter.component';
+import { SimpleCounterComponent } from './simple-counter/simple-counter.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -56,6 +59,9 @@ export const routes: Routes = [
       { path: 'new-parent-and-child', component: NewParentComponent },
       { path: 'app-import-rxjs', component: ImportRxjsComponent },
       { path: 'rxjs-beyond-http', component: RxjsWithoutHttpComponent },
+      { path: 'signal-counter', component: SignalCounterComponent },
+      { path: 'rxjs-counter', component: RxjsCounterComponent },
+      { path: 'simple-counter', component: SimpleCounterComponent },
       { path: 'template-crud', component: CrudComponent },
       { path: 'reactive-crud', component: ReactiveCrudComponent },
       { path: 'sibling-one', component: SiblingOneComponent },
