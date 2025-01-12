@@ -24,6 +24,7 @@ import { ParentFormComponent } from './parent-form/parent-form.component';
 import { SignalCounterComponent } from './signal-counter/signal-counter.component';
 import { RxjsCounterComponent } from './rxjs-counter/rxjs-counter.component';
 import { SimpleCounterComponent } from './simple-counter/simple-counter.component';
+import { TranslateTextComponent } from './translate-text/translate-text.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -68,4 +69,5 @@ export const routes: Routes = [
       { path: 'sibling-two', component: SiblingTwoComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'combined-reactive-form', component: ParentFormComponent },
+      { path: 'translate-text', component: TranslateTextComponent },
 ];
