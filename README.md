@@ -12,6 +12,62 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Github pages optimization
+Use Smaller Libraries
+
+Replace moment.js with date-fns
+
+Use lodash-es instead of lodash
+Replace rxjs imports with selective imports like
+
+import { map } from 'rxjs/operators';
+
+Tree Shaking & Terser Plugin
+
+Ensure your angular.json has:
+
+"buildOptimizer": true,
+"optimization": true
+
+4️ Remove Unused Dependencies
+
+npm prune
+npm dedupe
+
+## "sourceMap": false in angular.json only for production build
+make it "sourceMap": true for local development
+
+otherwise:
+
+Effects on Local Development
+No Debugging with Original Source Code
+
+Without source maps, the browser's developer tools will show only the minified and bundled JavaScript instead of the original TypeScript files.
+Errors will point to minified code, making debugging harder.
+
+Difficult to Trace Errors
+
+Instead of seeing:
+
+console.log("Debug message in component.ts");
+
+You'll see something like:
+
+console.log("a.b.c");
+
+Check if Source Maps are Enabled
+
+To check if source maps are working in Chrome DevTools:
+
+Open Developer Tools (F12 or Ctrl + Shift + I).
+
+Go to the Sources tab.
+
+If you see .ts files under webpack:// → Source maps are enabled.
+
+If only .js files appear → Source maps are disabled.
+
+
 ## Why SSR and GitHub Pages Conflict:
 
 the inclusion of server-side rendering (SSR) configurations in your Angular application can affect deployment to GitHub Pages, because GitHub Pages is a static hosting service. It doesn't support executing server-side code, such as the code in server.ts or the SSR setup.
