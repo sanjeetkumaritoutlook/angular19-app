@@ -5,18 +5,45 @@ $padding: 16px;
 $themes: (
   light: (bg: white, text: black, border: #ddd),
   dark: (bg: #333, text: white, border: #444),
+  primary: (bg: #007bff, text: white, border: #0056b3),
+  danger: (bg: #dc3545, text: white, border: #a71d2a),
 );
 
 .card {
-  border-radius: $border-radius;
-  padding: $padding;
-  border: 1px solid;
-
-  @each $theme, $colors in $themes {
-    &.#{$theme} {
-      background-color: map-get($colors, bg);
-      color: map-get($colors, text);
-      border-color: map-get($colors, border);
+    border-radius: $border-radius;
+    padding: $padding;
+    border: 1px solid;
+    text-align: center;
+    width: 250px;
+    margin: 10px;
+  
+    @each $theme, $colors in $themes {
+      &.#{$theme} {
+        background-color: map-get($colors, bg);
+        color: map-get($colors, text);
+        border-color: map-get($colors, border);
+      }
     }
   }
-}
+  
+  // Button styles
+  $button-styles: (
+    primary: (bg: #007bff, text: white),
+    secondary: (bg: gray, text: white),
+  );
+  
+  .card-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  
+    @each $type, $colors in $button-styles {
+      &.#{$type} {
+        background-color: map-get($colors, bg);
+        color: map-get($colors, text);
+      }
+    }
+  }

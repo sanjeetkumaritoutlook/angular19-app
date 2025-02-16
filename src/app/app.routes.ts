@@ -26,6 +26,7 @@ import { RxjsCounterComponent } from './rxjs-counter/rxjs-counter.component';
 import { SimpleCounterComponent } from './simple-counter/simple-counter.component';
 import { TranslateTextComponent } from './translate-text/translate-text.component';
 import { ExploringMaterialComponent } from './exploring-material/exploring-material.component';
+import { ParentCardComponent } from './parent-card/parent-card.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -59,6 +60,7 @@ export const routes: Routes = [
       },
       { path: 'parent-and-child', component: ParentComponent },
       { path: 'new-parent-and-child', component: NewParentComponent },
+      { path: 'card-theme', component: ParentCardComponent },
       { path: 'app-import-rxjs', component: ImportRxjsComponent },
       { path: 'rxjs-beyond-http', component: RxjsWithoutHttpComponent },
       { path: 'signal-counter', component: SignalCounterComponent },

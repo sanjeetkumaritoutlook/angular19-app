@@ -3,10 +3,9 @@ import { RouterOutlet,RouterModule } from '@angular/router';
 import { RainbowHoverDirective } from './rainbow-hover.directive';
 import {TitleCaseExceptPipe} from './title-case-except.pipe';
 import { CommonModule } from '@angular/common'; //to import built-in pipe same like to import built in structural directives
-import { CardComponent } from './card/card.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterModule,RainbowHoverDirective,TitleCaseExceptPipe,CommonModule,CardComponent],
+  imports: [RouterOutlet,RouterModule,RainbowHoverDirective,TitleCaseExceptPipe,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 

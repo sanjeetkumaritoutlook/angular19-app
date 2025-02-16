@@ -1,5 +1,8 @@
 <div class="card" [ngClass]="theme">
-    <h2 class="card-title">Card Title</h2>
-    <p class="card-content">This is a dynamic card component.</p>
+    <h2 class="card-title">{{ title }}</h2>
+    <p class="card-content">{{ content }}</p>
+    <button class="card-button" [ngClass]="buttonType">
+      {{ buttonText }}
+    </button>
   </div>
   

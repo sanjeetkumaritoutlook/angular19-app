@@ -20,3 +20,30 @@ Use map.get instead.
 More info and automated migrator: https://sass-lang.com/d/import
 
 18 |       border-color: map-get($colors, border);
+
+Let's extend the Angular Card Component by adding:
+
+✅ A button with dynamic text & styles
+✅ A title and content that can be customized
+✅ More themes (like primary, danger, etc.)
+
+✅ Supports dynamic title, content, and button text
+✅ Supports different themes (light, dark, primary, danger)
+✅ Supports different button styles (primary, secondary)
+
+----
+in html
+✅ Uses ngClass to apply the selected theme & button style dynamically.
+✅ Binds text dynamically using {{ title }} and {{ content }}.
+
+in scss
+ Dynamically applies themes using SCSS maps & loops
+✅ Reusable button styles (no need to repeat styles manually)
+✅ Easier to maintain and expand (just add new themes to $themes)
+
+ Final Result
+✅ Reusable, dynamic card component
+✅ Easily add new themes without modifying HTML
+✅ SCSS makes it easy to maintain and scale
+
+Would you like me to add animations or responsiveness?
