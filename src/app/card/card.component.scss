@@ -2,7 +2,7 @@ $border-radius: 8px;
 $padding: 16px;
 $transition-speed: 0.3s;
 
-// Card Themes
+// Themes
 $themes: (
   light: (bg: white, text: black, border: #ddd),
   dark: (bg: #333, text: white, border: #444),
@@ -18,7 +18,7 @@ $themes: (
   width: 250px;
   margin: 10px;
   overflow: hidden;
-  cursor: pointer; // Enables clickable behavior
+  cursor: pointer;
   transition: transform $transition-speed ease-in-out, box-shadow $transition-speed ease-in-out;
 
   @each $theme, $colors in $themes {
@@ -35,37 +35,39 @@ $themes: (
   }
 }
 
-// Image Styling
+// Image
 .card-image {
   width: 100%;
   height: 150px;
   object-fit: cover;
 }
 
-// Content Section
+// Content
 .card-content {
   padding: $padding;
 }
 
+// Expand Icon
+.expand-icon {
+  font-size: 16px;
+  margin-left: 8px;
+}
+
 // Expandable Content (Hidden by default)
 .extra-content {
-  margin-top: 10px;
-  padding: 10px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  opacity: 0;
-  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 // Show Expanded Content
-.card.expanded .extra-content {
-  opacity: 1;
+.extra-content.expanded {
   max-height: 100px;
+  opacity: 1;
 }
 
-// Button Styling
+// Button Styles
 $button-styles: (
   primary: (bg: #007bff, text: white, hover: #0056b3),
   secondary: (bg: gray, text: white, hover: #505050),

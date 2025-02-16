@@ -7,16 +7,21 @@
   </div>
 </a>
 
-<!-- Normal (Non-Link) Card -->
+<!-- Normal Expandable Card -->
 <ng-template #normalCard>
   <div class="card" [ngClass]="theme" (click)="toggleExpand()">
     <img *ngIf="imageUrl" [src]="imageUrl" alt="Card Image" class="card-image" />
     <div class="card-content">
-      <h2 class="card-title">{{ title }}</h2>
+      <h2 class="card-title">
+        {{ title }}
+        <span *ngIf="expandable" class="expand-icon">
+          {{ isExpanded ? '🔼' : '🔽' }}
+        </span>
+      </h2>
       <p>{{ content }}</p>
-      
-      <!-- Expanded Content -->
-      <div *ngIf="expandable && isExpanded" class="extra-content">
+
+      <!-- Expanded Content (Collapsible) -->
+      <div *ngIf="expandable" class="extra-content" [class.expanded]="isExpanded">
         <p>More details about this card... 🌟</p>
       </div>
 
