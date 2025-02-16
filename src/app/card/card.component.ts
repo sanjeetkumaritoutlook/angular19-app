@@ -12,4 +12,5 @@ export class CardComponent {
   @Input() content: string = 'This is a dynamic card component.';
   @Input() buttonText: string = 'Click Me';
   @Input() buttonType: 'primary' | 'secondary' = 'primary'; // Button style
+  @Input() imageUrl: string = ''; // New property for dynamic image
 }

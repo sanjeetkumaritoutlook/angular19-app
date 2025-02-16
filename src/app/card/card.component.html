@@ -1,8 +1,10 @@
 <div class="card" [ngClass]="theme">
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="Card Image" class="card-image" />
+  <div class="card-content">
     <h2 class="card-title">{{ title }}</h2>
-    <p class="card-content">{{ content }}</p>
+    <p>{{ content }}</p>
     <button class="card-button" [ngClass]="buttonType">
       {{ buttonText }}
     </button>
   </div>
-  
+</div>

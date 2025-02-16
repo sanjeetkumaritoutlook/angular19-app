@@ -65,3 +65,22 @@ Animations/responsiveness:
 ✅ Looks modern & interactive (with animations)
 ✅ Works great on desktop & mobile
 ✅ Easy to extend (just add new themes or styles!)
+
+image inside Card:
+✅ Supports dynamic images via imageUrl
+✅ Keeps images optional (card works without them too)
+
+ Uses *ngIf="imageUrl" → Only shows the image if an imageUrl is provided
+✅ [src]="imageUrl" → Dynamically loads the image
+
+--
+scss
+Images are responsive
+✅ Uses object-fit: cover; to prevent image distortion
+✅ Card text & button stay well-aligned
+
+css: field-sizing(https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing)
+🎉 Final Improvements
+✅ Dynamic image support 🎨
+✅ Looks great on mobile & desktop 📱💻
+✅ Maintains smooth animations

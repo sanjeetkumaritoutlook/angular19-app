@@ -1,6 +1,6 @@
 $border-radius: 8px;
 $padding: 16px;
-$transition-speed: 0.3s; // For smooth animations
+$transition-speed: 0.3s;
 
 // Define card themes
 $themes: (
@@ -12,11 +12,12 @@ $themes: (
 
 .card {
   border-radius: $border-radius;
-  padding: $padding;
+  padding: 0;
   border: 1px solid;
   text-align: center;
   width: 250px;
   margin: 10px;
+  overflow: hidden; // Prevents image overflow
   transition: transform $transition-speed ease-in-out, box-shadow $transition-speed ease-in-out;
 
   @each $theme, $colors in $themes {
@@ -27,11 +28,22 @@ $themes: (
     }
   }
 
-  // Hover Animation (Smooth Scale Effect)
   &:hover {
     transform: scale(1.05);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   }
+}
+
+// Image styling
+.card-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; // Ensures the image fills the space nicely
+}
+
+// Content section (for text & button)
+.card-content {
+  padding: $padding;
 }
 
 // Button styles
@@ -61,7 +73,7 @@ $button-styles: (
   }
 }
 
-// Responsive Design (Cards adjust on smaller screens)
+// Responsive Design (Full width on small screens)
 @media (max-width: 600px) {
   .card {
     width: 100%;
