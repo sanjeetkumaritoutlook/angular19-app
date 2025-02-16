@@ -1,10 +1,28 @@
-<div class="card" [ngClass]="theme">
+<!-- Clickable wrapper (navigates if link is provided) -->
+<a *ngIf="link; else normalCard" [href]="link" class="card" [ngClass]="theme">
   <img *ngIf="imageUrl" [src]="imageUrl" alt="Card Image" class="card-image" />
   <div class="card-content">
     <h2 class="card-title">{{ title }}</h2>
     <p>{{ content }}</p>
-    <button class="card-button" [ngClass]="buttonType">
-      {{ buttonText }}
-    </button>
   </div>
-</div>
+</a>
+
+<!-- Normal (Non-Link) Card -->
+<ng-template #normalCard>
+  <div class="card" [ngClass]="theme" (click)="toggleExpand()">
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Card Image" class="card-image" />
+    <div class="card-content">
+      <h2 class="card-title">{{ title }}</h2>
+      <p>{{ content }}</p>
+      
+      <!-- Expanded Content -->
+      <div *ngIf="expandable && isExpanded" class="extra-content">
+        <p>More details about this card... 🌟</p>
+      </div>
+
+      <button class="card-button" [ngClass]="buttonType">
+        {{ buttonText }}
+      </button>
+    </div>
+  </div>
+</ng-template>

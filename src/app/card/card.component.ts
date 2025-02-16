@@ -13,4 +13,15 @@ export class CardComponent {
   @Input() buttonText: string = 'Click Me';
   @Input() buttonType: 'primary' | 'secondary' = 'primary'; // Button style
   @Input() imageUrl: string = ''; // New property for dynamic image
+  
+  @Input() link: string = ''; // Optional link for navigation
+  @Input() expandable: boolean = false; // Controls expand feature
+
+  isExpanded: boolean = false; // Toggle state
+
+  toggleExpand() {
+    if (this.expandable) {
+      this.isExpanded = !this.isExpanded;
+    }
+  }
 }

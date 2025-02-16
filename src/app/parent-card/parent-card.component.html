@@ -1,19 +1,22 @@
+<!-- Clickable Card -->
 <app-card 
   theme="light" 
-  title="Nature View" 
-  content="A beautiful scenic landscape."
-  buttonText="See More"
+  title="Google" 
+  content="Click to visit Google."
+  buttonText="Go"
   buttonType="primary"
-  imageUrl="https://picsum.photos/200/300?random=4">
+  imageUrl="https://picsum.photos/200/300?random=4"
+  link="https://www.google.com">
 </app-card>
-
+<!-- Expandable Card -->
 <app-card 
   theme="dark" 
-  title="Night Sky" 
-  content="Experience the beauty of the stars."
-  buttonText="Explore"
+  title="Expandable Card" 
+  content="Click to expand for more details."
+  buttonText="Read More"
   buttonType="secondary"
-  imageUrl="https://picsum.photos/200/300?random=1">
+  imageUrl="https://picsum.photos/200/300?random=1"
+  [expandable]="true">
 </app-card>
 
 <app-card 
