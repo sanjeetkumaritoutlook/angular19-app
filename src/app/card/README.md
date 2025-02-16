@@ -132,3 +132,23 @@ scss:
 ✅ Responsive animations & hover effects ✨
 
 Would you like any more improvements? Maybe custom icons or more animations? 
+map-get replaced by map.get
+new error:
+The variable $colors inside your @each loops does not store the correct theme data structure.
+
+Issue Explanation
+$themes is a map of maps, where each theme (e.g., light, dark) contains another map (bg, text, border).
+
+Problem:
+$colors is a local variable inside the loop.
+map.get($colors, bg) tries to access values from a variable that isn't actually a map from the sass:map module.
+Dart Sass doesn't recognize $colors as a valid argument for map.get.
+Fix: Use Nested map.get
+Instead of relying on $colors in the loop, explicitly use map.get($themes, $theme):
+
+Summary of Fixes
+✅ Import sass:map (@use "sass:map";)
+✅ Use nested map.get() to access values correctly
+✅ Apply the fix to both themes and button styles
+After making these changes, restart your Angular project:
+ng serve --open

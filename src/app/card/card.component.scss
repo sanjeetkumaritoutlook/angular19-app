@@ -1,3 +1,5 @@
+@use "sass:map"; // Import Sass module
+
 $border-radius: 8px;
 $padding: 16px;
 $transition-speed: 0.3s;
@@ -21,11 +23,11 @@ $themes: (
   cursor: pointer;
   transition: transform $transition-speed ease-in-out, box-shadow $transition-speed ease-in-out;
 
-  @each $theme, $colors in $themes {
+  @each $theme, $values in $themes {
     &.#{$theme} {
-      background-color: map-get($colors, bg);
-      color: map-get($colors, text);
-      border-color: map-get($colors, border);
+      background-color: map.get(map.get($themes, $theme), bg);
+      color: map.get(map.get($themes, $theme), text);
+      border-color: map.get(map.get($themes, $theme), border);
     }
   }
 
@@ -82,13 +84,13 @@ $button-styles: (
   font-weight: bold;
   transition: background-color $transition-speed ease-in-out;
 
-  @each $type, $colors in $button-styles {
+  @each $type, $values in $button-styles {
     &.#{$type} {
-      background-color: map-get($colors, bg);
-      color: map-get($colors, text);
-
+      background-color: map.get(map.get($button-styles, $type), bg);
+      color: map.get(map.get($button-styles, $type), text);
+  
       &:hover {
-        background-color: map-get($colors, hover);
+        background-color: map.get(map.get($button-styles, $type), hover);
       }
     }
   }
