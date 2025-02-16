@@ -1,0 +1,22 @@
+$border-radius: 8px;
+$padding: 16px;
+
+// Define themes using SCSS maps
+$themes: (
+  light: (bg: white, text: black, border: #ddd),
+  dark: (bg: #333, text: white, border: #444),
+);
+
+.card {
+  border-radius: $border-radius;
+  padding: $padding;
+  border: 1px solid;
+
+  @each $theme, $colors in $themes {
+    &.#{$theme} {
+      background-color: map-get($colors, bg);
+      color: map-get($colors, text);
+      border-color: map-get($colors, border);
+    }
+  }
+}
