@@ -27,6 +27,8 @@ import { SimpleCounterComponent } from './simple-counter/simple-counter.componen
 import { TranslateTextComponent } from './translate-text/translate-text.component';
 import { ExploringMaterialComponent } from './exploring-material/exploring-material.component';
 import { ParentCardComponent } from './parent-card/parent-card.component';
+import { ReactiveRootComponent } from './reactive-root/reactive-root.component';
+import { TemplateRootComponent } from './template-root/template-root.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -74,4 +76,6 @@ export const routes: Routes = [
       { path: 'combined-reactive-form', component: ParentFormComponent },
       { path: 'translate-text', component: TranslateTextComponent },
       { path: 'exploring-material', component: ExploringMaterialComponent },
+      { path: 'reactive-root', component: ReactiveRootComponent },
+      { path: 'template-root', component: TemplateRootComponent },
 ];
