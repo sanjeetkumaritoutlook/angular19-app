@@ -29,6 +29,7 @@ import { ExploringMaterialComponent } from './exploring-material/exploring-mater
 import { ParentCardComponent } from './parent-card/parent-card.component';
 import { ReactiveRootComponent } from './reactive-root/reactive-root.component';
 import { TemplateRootComponent } from './template-root/template-root.component';
+import { UserListComponent } from './user-list/user-list.component';
 export const routes: Routes = [
     {path:'',
      redirectTo:'dataBinding',
@@ -78,4 +79,5 @@ export const routes: Routes = [
       { path: 'exploring-material', component: ExploringMaterialComponent },
       { path: 'reactive-root', component: ReactiveRootComponent },
       { path: 'template-root', component: TemplateRootComponent },
+      { path: 'v19-resource', component: UserListComponent },
 ];
