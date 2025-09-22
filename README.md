@@ -90,6 +90,8 @@ Firebase Hosting with Cloud Functions
 AWS, Azure, or Google Cloud for full server hosting.
 These services support server-side environments and can run your SSR code properly.
 
+![Full-stack roadmap](fullstack.jpg)
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
